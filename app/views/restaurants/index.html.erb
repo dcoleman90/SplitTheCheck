@@ -3,32 +3,42 @@
 <h1>Restaurants</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th>Up Votes</th>
-      <th>Down Votes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.city %></td>
-        <td><%= restaurant.state %></td>
-        <td><%= restaurant.zip %></td>
-        <td><%= restaurant.up_votes %></td>
-        <td><%= restaurant.down_votes %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        	<dl>
+        		<dt>
+        			<%= restaurant.name %>
+        		</dt>
+        		<dd>
+        			<%= restaurant.address %></br>
+        		</dd>
+        		<dd>	
+        			<%=restaurant.get_city_state_zip %>
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<%= image_tag("thumbs-up.png", 
+        		alt: "Thumbs Up", size: "30x30") %></br>
+        	<%= restaurant.up_votes %>
+        </td>
+        
+        <td class="votes">
+        	<%= image_tag("thumbs-down.png", 
+        		alt: "Thumbs Down", size: "30x30") %></br>
+        	<%= restaurant.down_votes %>
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><%= link_to 'Show', restaurant %></td>
+        <td class="links"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td class="links"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

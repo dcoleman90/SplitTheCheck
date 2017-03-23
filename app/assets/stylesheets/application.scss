@@ -17,27 +17,29 @@
  body {margin: 8px !important}
  
  #banner {
- 	background-image: url("food-banner.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
- 	display: block;
- 	min-height: 100px;
- 	width: 100%;
- 	margin: 0 auto;
- 	
- 	.title {
- 		font-size: 5em;
- 		font-family: Impact;
- 		font-weight: 1000;
+ 	background-image:  	url("food-banner.jpg");
+	background-repeat: 	no-repeat;
+	background-size: 	100%;
+	height: 			20px;
+ 	position:			relative;
+ 	padding: 			5%; 
 
- 		color: white;
- 		position: absolute;
- 		padding-left: 2%;
- 		top: 10%;
- 	}
+ 	.title {
+		font-size: 	 5em;
+		font-family: Impact;
+		font-weight: bold;
+		color: 		 white;
+	}
  }
  
  #main {
- 	padding: 1em;
  	background: white;
  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

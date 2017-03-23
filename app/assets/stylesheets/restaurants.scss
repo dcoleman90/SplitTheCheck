@@ -1,3 +1,35 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+	font-size: 2.75em;
+	padding-bottom: 10px;
+	margin-left: 10%;
+}
+
+table, td {
+	border-top: 	3px dotted black;
+ 	border-bottom: 	3px dotted black;
+ 	border-collapse: collapse;
+ 	width: 80%;
+ 	margin-left: 10%;
+ 	margin-right: 10%;
+}
+
+dt {
+	font-size: 1.6em;
+	padding: 10px;
+	font-weight: bold;
+}
+
+dd {
+	padding: .2em;
+	font-size: 1.5em;
+}
+
+
+.votes, .links {
+	text-align: center;
+	font-size: 1.25em;
+	width: 15%;
+}
