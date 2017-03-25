@@ -1,12 +1,15 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Header stylings
 h1 {
 	font-size: 2.75em;
-	padding-bottom: 10px;
 	margin-left: 10%;
+	margin-right: 10%;
 }
 
+// Table stylings
 table, td {
 	border-top: 	3px dotted black;
  	border-bottom: 	3px dotted black;
@@ -14,22 +17,61 @@ table, td {
  	width: 80%;
  	margin-left: 10%;
  	margin-right: 10%;
-}
-
-dt {
+ 	
+ 	dt {
 	font-size: 1.6em;
 	padding: 10px;
 	font-weight: bold;
-}
-
-dd {
+	}
+	
+	dd {
 	padding: .2em;
 	font-size: 1.5em;
+	}
+}
+
+fieldset {
+	width: 80%; 
+	margin-left: 10%;
+	margin-right: 10%;
+	border-right: none;
+	border-left: none;
+	border-top: 3px dotted black;
+	border-bottom: 3px dotted black;
+	
+	legend {
+		font-size: 1.75em;
+	}
+	
+	.field {
+		font-weight: bold;
+	}
+	
+	input {
+		width: 100%;
+		max-width: 300px;
+	}
+
 }
 
 
-.votes, .links {
+// Link stylings 
+.votes, .links, #partial_links {
 	text-align: center;
 	font-size: 1.25em;
 	width: 15%;
 }
+
+#partial_links{
+	margin-left: 8%;
+	padding: 5px;
+}
+
+// Keep two things on the same line but on different sides
+ .left {
+ 	float: left;
+ }
+ 
+ .right {
+ 	float: right;
+ }

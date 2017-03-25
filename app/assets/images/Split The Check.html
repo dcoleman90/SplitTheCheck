@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Split The Check</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="88n0c5rMJXfkDY3ssbGBujawJRayCt/ufv2VC3r2LPeZ+20jnk0Wl0B7slrh40ygg5pRuridPE4fZCTKrC4AFg==">
+
+    <link rel="stylesheet" media="all" href="Split%20The%20Check_files/restaurants.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Split%20The%20Check_files/scaffolds.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="Split%20The%20Check_files/application.css" data-turbolinks-track="reload">
+    <script src="Split%20The%20Check_files/jquery.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/jquery_ujs.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/turbolinks.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/action_cable.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/cable.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/restaurants.js" data-turbolinks-track="reload"></script>
+<script src="Split%20The%20Check_files/application.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body class="restaurants">
+  	<div id="banner">
+  		<span class="title">Split the Check</span>
+  	</div>
+  	
+  	<div id="main">
+	    <p id="notice"></p>
+
+<h1>Restaurants</h1>
+
+<table>
+  <tbody>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Alinea
+        		</dt>
+        		<dd>
+        			1723 N. Halsted St.<br>
+        		</dd>
+        		<dd>	
+        			IL 60614
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	10
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	5
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/1">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/1/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/1">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			The Purple Pig
+        		</dt>
+        		<dd>
+        			500 N. Michigan Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60611
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	4
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	8
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/2">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/2/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/2">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Boka
+        		</dt>
+        		<dd>
+        			1729 N. Halsted St.<br>
+        		</dd>
+        		<dd>	
+        			IL 60614
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	14
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	1
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/3">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/3/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/3">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Au Cheval
+        		</dt>
+        		<dd>
+        			800 W. Randolf St.<br>
+        		</dd>
+        		<dd>	
+        			IL 60607
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	5
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	22
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/4">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/4/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/4">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Girl &amp; the Goat
+        		</dt>
+        		<dd>
+        			809 W. Randolf<br>
+        		</dd>
+        		<dd>	
+        			IL 60607
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	30
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	30
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/5">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/5/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/5">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Fat Rice
+        		</dt>
+        		<dd>
+        			2957 W. Diversy Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60647
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	5
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	0
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/6">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/6/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/6">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Parachute
+        		</dt>
+        		<dd>
+        			3500 N. Elston Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60618
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	80
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	15
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/7">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/7/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/7">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Bavette's Bar &amp; Boeuf
+        		</dt>
+        		<dd>
+        			218 W. Kinzie St.<br>
+        		</dd>
+        		<dd>	
+        			IL 60654
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	140
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	50
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/8">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/8/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/8">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			The Publican
+        		</dt>
+        		<dd>
+        			837 W. Fulton Market<br>
+        		</dd>
+        		<dd>	
+        			IL 60607
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	0
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	71
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/9">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/9/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/9">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Goose Island Beer Company
+        		</dt>
+        		<dd>
+        			1800 W Fulton St.<br>
+        		</dd>
+        		<dd>	
+        			IL 60612
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	114
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	0
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/10">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/10/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/10">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Begyle Brewing Company
+        		</dt>
+        		<dd>
+        			1800 W Cuyler Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60613
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	30
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	30
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/11">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/11/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/11">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Violet Hour
+        		</dt>
+        		<dd>
+        			1520 N. Damen Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60622
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	0
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	0
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/12">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/12/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/12">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			The J Parker
+        		</dt>
+        		<dd>
+        			1816 N. Clark<br>
+        		</dd>
+        		<dd>	
+        			IL 60614
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	29
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	95
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/13">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/13/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/13">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Lou Malnati's Pizzeria
+        		</dt>
+        		<dd>
+        			4340 N. Lincoln Ave.<br>
+        		</dd>
+        		<dd>	
+        			IL 60618
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	35
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	12
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/14">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/14/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/14">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Giordano's
+        		</dt>
+        		<dd>
+        			1040 W. Belmont<br>
+        		</dd>
+        		<dd>	
+        			IL 60657
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	65
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	34
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/15">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/15/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/15">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Reza's Restaurant
+        		</dt>
+        		<dd>
+        			5255 N Clark St<br>
+        		</dd>
+        		<dd>	
+        			IL 60640
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	32
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	21
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/16">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/16/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/16">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Wilde Bar &amp; Restaurant
+        		</dt>
+        		<dd>
+        			3130 N Broadway<br>
+        		</dd>
+        		<dd>	
+        			IL 60657
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	900
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	2
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/17">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/17/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/17">Destroy</a></td>
+      </tr>
+      <tr>
+        <td>
+        	<dl>
+        		<dt>
+        			Bandera
+        		</dt>
+        		<dd>
+        			535 N Michigan Ave<br>
+        		</dd>
+        		<dd>	
+        			IL 60611
+        		</dd>
+        	</dl>
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Up" src="Split%20The%20Check_files/thumbs-up-2a8ee30b056a7941059a0eb6d508324800ae8e1d9ae60a1d90.png" width="30" height="30"><br>
+        	25
+        </td>
+        
+        <td class="votes">
+        	<img alt="Thumbs Down" src="Split%20The%20Check_files/thumbs-down-3564df3bf25d35db05b1e2a9f5bc50460dec11ca33141e47.png" width="30" height="30"><br>
+        	39
+        	<!-- preface image_tag with link_to when needed -->
+        </td>
+        
+        
+        
+        
+        <td class="links"><a href="http://localhost:3000/restaurants/18">Show</a></td>
+        <td class="links"><a href="http://localhost:3000/restaurants/18/edit">Edit</a></td>
+        <td class="links"><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/restaurants/18">Destroy</a></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<a href="http://localhost:3000/restaurants/new">New Restaurant</a>
+
+  	</div>
+  
+
+</body></html>

@@ -10,37 +10,33 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  * header background source: https://bestfoodrestaurants.files.wordpress.com/2016/05/italian-food-banner.jpg?w=810
  */
- body {margin: 8px !important}
- 
- #banner {
- 	background-image:  	url("food-banner.jpg");
-	background-repeat: 	no-repeat;
-	background-size: 	100%;
-	height: 			20px;
- 	position:			relative;
- 	padding: 			5%; 
+/* line 18, /home/student/work/splitthecheck/app/assets/stylesheets/application.scss */
+body {
+  margin: 8px !important;
+}
 
- 	.title {
-		font-size: 	 5em;
-		font-family: Impact;
-		font-weight: bold;
-		color: 		 white;
-	}
- }
- 
- #main {
- 	background: white;
- }
- 
+/* line 20, /home/student/work/splitthecheck/app/assets/stylesheets/application.scss */
+#banner {
+  background-image: url("food-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 20px;
+  position: relative;
+  padding: 5%;
+}
+/* line 28, /home/student/work/splitthecheck/app/assets/stylesheets/application.scss */
+#banner .title {
+  font-size: 5em;
+  font-family: Impact;
+  font-weight: bold;
+  color: white;
+}
 
- 
- 
- 
- 
- 
- 
- 
+/* line 36, /home/student/work/splitthecheck/app/assets/stylesheets/application.scss */
+#main {
+  background: white;
+}

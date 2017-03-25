@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Restaurants</h1>
+<h1>
+	<span class="left">Restaurants</span>
+	<span class="right">
+		<%= link_to image_tag("plus-icon.png", 
+		alt: "Add restaurant", size: "30x30"), 
+		new_restaurant_path %>
+	</span>
+</h1>
 
 <table>
   <tbody>
@@ -15,7 +22,7 @@
         			<%= restaurant.address %></br>
         		</dd>
         		<dd>	
-        			<%=restaurant.get_city_state_zip %>
+        			<%= restaurant.get_city_state_zip %>
         		</dd>
         	</dl>
         </td>
@@ -36,8 +43,10 @@
         
         
         
-        <td class="links"><%= link_to 'Show', restaurant %></td>
-        <td class="links"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td class="links"><%= link_to 'Show', 
+        	restaurant %></td>
+        <td class="links"><%= link_to 'Edit',
+        	 edit_restaurant_path(restaurant) %></td>
         <td class="links"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -46,4 +55,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+
