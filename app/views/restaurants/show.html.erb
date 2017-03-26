@@ -18,13 +18,15 @@
         
         <td class="votes">
         	<%= image_tag("thumbs-up.png", 
-        		alt: "Thumbs Up", size: "30x30") %></br>
+        		alt: "Thumbs Up", size: "30x30", 
+        		class: "icons") %></br>
         	<%= @restaurant.up_votes %>
         </td>
         
         <td class="votes">
         	<%= image_tag("thumbs-down.png", 
-        		alt: "Thumbs Down", size: "30x30") %></br>
+        		alt: "Thumbs Down", size: "30x30",
+        		class: "icons") %></br>
         	<%= @restaurant.down_votes %>
         	<!-- preface image_tag with link_to when needed -->
         </td>   

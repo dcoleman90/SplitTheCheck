@@ -62,11 +62,13 @@ class RestaurantsController < ApplicationController
     end
   end
   
-  # GET /restaurants/1/up_vote
+  # POST /restaurants/1/up_vote
   def up_vote
   	@restaurant.add_up_vote
 	respond_to do |format|
-      if @restaurant.save
+      if @restaurant.update(up_votes:
+      	 	@restaurant.up_votes)
+      	 	
         format.html { redirect_to @restaurant, 
         	notice: 'Up vote recorded.' }
         format.json { render :show, status: :ok, 
@@ -79,11 +81,13 @@ class RestaurantsController < ApplicationController
     end
   end
   
-  # GET /restaurants/1/down_vote
+  # POST /restaurants/1/down_vote
   def down_vote
   	@restaurant.add_down_vote
 	respond_to do |format|
-      if @restaurant.save
+      if @restaurant.update(down_votes:
+      	 	@restaurant.down_votes)
+
         format.html { redirect_to @restaurant, 
         	notice: 'Down vote recorded.' }
         format.json { render :show, status: :ok, 
