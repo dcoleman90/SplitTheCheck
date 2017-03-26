@@ -21,15 +21,17 @@ pre {
 }
 
 a {
-  color: #000;
-
+  color: #00ced1;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.25em;
+  
   &:visited {
-    color: #666;
+  
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+	color: #800000;
   }
 }
 

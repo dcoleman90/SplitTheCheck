@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
+<% if @restaurants.blank? %>
+<h2 id="notice">No restaurants found with that criteria.</h2>
+<% end %>
 
 <h1>
 	<span class="left">Restaurants</span>
 	<span class="right">
 		<%= link_to image_tag("plus-icon.png", 
-		alt: "Add restaurant", size: "30x30"), 
+		alt: "Add restaurant", class: "icons"), 
 		new_restaurant_path %>
 	</span>
 </h1>
+
 
 <table>
   <tbody>
@@ -31,7 +35,7 @@
       
         <td class="votes">
         	<%= link_to image_tag("thumbs-up.png", 
-        		alt: "Thumbs Up", size: "30x30"),
+        		alt: "Thumbs Up", class: "icons"),
         		up_vote_restaurant_path(restaurant.id)%></br>
         		
         	<%= restaurant.up_votes %>
@@ -39,7 +43,7 @@
         
         <td class="votes">
         	<%= link_to image_tag("thumbs-down.png", 
-        		alt: "Thumbs Down", size: "30x30"),
+        		alt: "Thumbs Down", class: "icons"),
         		down_vote_restaurant_path(restaurant.id)%></br>
         		
         	<%= restaurant.down_votes %>
@@ -48,18 +52,14 @@
 <!----------------------------------------->       
         
         
-        <td class="links">
+        <td>
         	<%= link_to 'Show', 
         		restaurant %>
-        </td>
-        <td class="links">
         	<%= link_to 'Edit', 
         		edit_restaurant_path(restaurant) %>
-        </td>
-        <td class="links">
         	<%= link_to 'Destroy', 
-        	restaurant, method: :delete, 
-         	data: { confirm: 'Are you sure?' } %>
+        		restaurant, method: :delete, 
+         		data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

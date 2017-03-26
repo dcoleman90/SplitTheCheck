@@ -9,6 +9,21 @@ h1 {
 	margin-right: 10%;
 }
 
+.left {
+ 	float: left;	 	
+ }
+ 
+ .right {
+ 	float: right;
+ 	padding-bottom: 4px;
+ 	margin-top: -10px;
+ 	
+ 	img {
+ 		width: 45px;
+ 		height: 45px;
+ 	}
+ }
+
 // Table stylings
 table, td {
 	border-top: 	3px dotted black;
@@ -46,36 +61,43 @@ fieldset {
 	
 	.field {
 		font-weight: bold;
+		font-size: 1.5em;
+		padding: 1px;
 	}
 	
 	input {
 		width: 100%;
 		max-width: 300px;
+		margin-top: 5px;
 	}
 
 }
 
 
 // Link stylings 
-.votes, .links, #partial_links {
+.votes {
 	text-align: center;
-	font-size: 1.25em;
+	font-weight: bold;
+	font-size: 1.3em;
 	width: 15%;
 }
 
 #partial_links{
-	margin-left: 8%;
+	margin-left: 10%;
+	font-size: 1.25em;
 	padding: 5px;
 }
 
-// Keep two things on the same line but on different sides
-.left {
- 	float: left;	 	
- }
- 
- .right {
- 	float: right;
- }
+#edit_link {
+	margin-top: 2px;
+	padding-bottom: 2px;
+}
+
+// Stylings for icons
+.icons {
+	height: 40px;
+	width: 40px;
+}
  
  // JavaScript Credit given to: 
  // http://jsfiddle.net/sushanth009/9kAdP/
