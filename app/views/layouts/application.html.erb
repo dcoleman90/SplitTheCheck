@@ -9,21 +9,17 @@
   </head>
 
   <body class="<%= controller.controller_name %>">
-	<a href="/restaurants">
-	  	<div id="banner">
-	  		
-	  		<span class="title">Split the Check</span>
-	  		
-	  		<%= form_tag(restaurants_path, :method => "get", 
-	  			id: "search-form") do %>
-				<%= text_field_tag :search, 
-					params[:search], 
-					placeholder: "Search Restaurants" %>
-				<%= submit_tag "Search", :name => nil %>
-			<% end %>
-		
-	  	</div>
-  	</a>
+	
+  	<div id="banner">
+  		<span class="title">Split the Check</span>
+  		<%= form_tag(restaurants_path, :method => "get", 
+  			id: "search-form") do %>
+			<%= text_field_tag :search, 
+				params[:search], 
+				placeholder: "Search Restaurants" %>
+			<%= submit_tag "Search", :name => nil %>
+		<% end %>
+  	</div>
   	
   	<div id="main">
 	    <%= yield %>

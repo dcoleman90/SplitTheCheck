@@ -3,6 +3,7 @@
 <h2 id="notice">No restaurants found with that criteria.</h2>
 <% end %>
 
+<% if !@restaurants.blank? %>
 <h1>
 	<span class="left">Restaurants</span>
 	<span class="right">
@@ -11,7 +12,7 @@
 		new_restaurant_path %>
 	</span>
 </h1>
-
+<% end %>
 
 <table>
   <tbody>
@@ -67,6 +68,11 @@
     <% end %>
   </tbody>
 </table>
+
+<% if @restaurants.blank? %>
+	<%= link_to 'Back',  restaurants_path, 
+		id: "partial_links" %>
+<% end %>
 
 <br>
 

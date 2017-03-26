@@ -67,6 +67,7 @@ div {
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
+  margin-left: 10%;
   background-color: #f0f0f0;
 
   h2 {
@@ -84,6 +85,10 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+#notice {
+	margin-left: 10%;
 }
 
 label {
