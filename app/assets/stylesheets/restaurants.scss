@@ -30,6 +30,7 @@ table, td {
 	}
 }
 
+// Fieldset stylings
 fieldset {
 	width: 80%; 
 	margin-left: 10%;
@@ -68,10 +69,27 @@ fieldset {
 }
 
 // Keep two things on the same line but on different sides
- .left {
- 	float: left;
+.left {
+ 	float: left;	 	
  }
  
  .right {
  	float: right;
  }
+ 
+ // JavaScript Credit given to: 
+ // http://jsfiddle.net/sushanth009/9kAdP/
+ img:hover{
+    behavior:url(-ms-transform.htc);
+    /* Firefox */
+    -moz-transform:rotate(45deg);
+    /* Safari and Chrome */
+    -webkit-transform:rotate(45deg);
+    /* Opera */
+    -o-transform:rotate(45deg);
+    /* IE9 */
+    -ms-transform:rotate(45deg);
+    /* IE6,IE7 */
+    
+    text-decoration: none;
+}

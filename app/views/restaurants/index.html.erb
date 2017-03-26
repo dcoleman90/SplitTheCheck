@@ -26,28 +26,41 @@
         		</dd>
         	</dl>
         </td>
-        
+
+<!----------------------------------------->       
+      
         <td class="votes">
-        	<%= image_tag("thumbs-up.png", 
-        		alt: "Thumbs Up", size: "30x30") %></br>
+        	<%= link_to image_tag("thumbs-up.png", 
+        		alt: "Thumbs Up", size: "30x30"),
+        		up_vote_restaurant_path(restaurant.id)%></br>
+        		
         	<%= restaurant.up_votes %>
         </td>
         
         <td class="votes">
-        	<%= image_tag("thumbs-down.png", 
-        		alt: "Thumbs Down", size: "30x30") %></br>
+        	<%= link_to image_tag("thumbs-down.png", 
+        		alt: "Thumbs Down", size: "30x30"),
+        		down_vote_restaurant_path(restaurant.id)%></br>
+        		
         	<%= restaurant.down_votes %>
-        	<!-- preface image_tag with link_to when needed -->
         </td>
         
+<!----------------------------------------->       
         
         
-        
-        <td class="links"><%= link_to 'Show', 
-        	restaurant %></td>
-        <td class="links"><%= link_to 'Edit',
-        	 edit_restaurant_path(restaurant) %></td>
-        <td class="links"><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="links">
+        	<%= link_to 'Show', 
+        		restaurant %>
+        </td>
+        <td class="links">
+        	<%= link_to 'Edit', 
+        		edit_restaurant_path(restaurant) %>
+        </td>
+        <td class="links">
+        	<%= link_to 'Destroy', 
+        	restaurant, method: :delete, 
+         	data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

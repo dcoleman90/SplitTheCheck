@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :up_vote, :down_vote]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -28,11 +28,14 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        format.json { render :show, status: :created, location: @restaurant }
+        format.html { redirect_to @restaurant, 
+        	notice: 'Restaurant was successfully created.' }
+        format.json { render :show, status: :created, 
+        	location: @restaurant }
       else
         format.html { render :new }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.json { render json: @restaurant.errors,
+        	 status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +45,48 @@ class RestaurantsController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @restaurant }
+        format.html { redirect_to @restaurant, 
+        	notice: 'Restaurant was successfully updated.' }
+        format.json { render :show, status: :ok, 
+        	location: @restaurant }
       else
         format.html { render :edit }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.json { render json: @restaurant.errors,
+        	 status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  # GET /restaurants/1/up_vote
+  def up_vote
+  	@restaurant.add_up_vote
+	respond_to do |format|
+      if @restaurant.save
+        format.html { redirect_to @restaurant, 
+        	notice: 'Up vote recorded.' }
+        format.json { render :show, status: :ok, 
+        	location: @restaurant }
+      else
+        format.html { render :edit }
+        format.json { render json: @restaurant.errors,
+        	 status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  # GET /restaurants/1/down_vote
+  def down_vote
+  	@restaurant.add_down_vote
+	respond_to do |format|
+      if @restaurant.save
+        format.html { redirect_to @restaurant, 
+        	notice: 'Down vote recorded.' }
+        format.json { render :show, status: :ok, 
+        	location: @restaurant }
+      else
+        format.html { render :edit }
+        format.json { render json: @restaurant.errors,
+        	 status: :unprocessable_entity }
       end
     end
   end
@@ -56,18 +96,24 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.html { redirect_to restaurants_url, 
+      	notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  # ----------------------------------------------------
+  # Private helpers ------------------------------------
+  # ----------------------------------------------------
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints
+    # between actions.
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, 
+    # only allow the white list through.
     def restaurant_params
       params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :up_votes, :down_votes)
     end
