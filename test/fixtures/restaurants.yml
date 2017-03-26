@@ -17,3 +17,21 @@ two:
   zip: 1
   up_votes: 1
   down_votes: 1
+  
+Alinea:
+  name:       Alinea
+  address:    1723 N. Halsted St.
+  city:       Chicago
+  state:      IL
+  zip:        60614
+  up_votes:   10
+  down_votes: 10
+  
+PurplePig:
+  name:       The Purple Pig
+  address:    500 N. Michigan Ave.
+  city:       Chicago
+  state:      IL
+  zip:        60611
+  up_votes:   20
+  down_votes: 20
