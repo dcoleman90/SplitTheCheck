@@ -4,8 +4,8 @@ one:
   name:       MyString
   address:    MyString
   city:       MyString
-  state:      MyString
-  zip:        1
+  state:      MI
+  zip:        60610
   up_votes:   1
   down_votes: 1
 
@@ -13,8 +13,8 @@ two:
   name:       MyString
   address:    MyString
   city:       MyString
-  state:      MyString
-  zip:        1
+  state:      MI
+  zip:        60611
   up_votes:   1
   down_votes: 1
   

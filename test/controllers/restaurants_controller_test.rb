@@ -3,6 +3,15 @@ require 'test_helper'
 class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @restaurant = restaurants(:one)
+    @update = {
+      name:       "Jake's Pub",
+  	  address:    '1540 North Street',
+	  city:       'Chicago',
+	  state:      'IL',
+	  zip:        60611,
+	  up_votes:   1,
+	  down_votes: 1
+    }
     @restaurants = Restaurant.all
   end
 
@@ -18,7 +27,15 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create restaurant" do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { address: @restaurant.address, city: @restaurant.city, down_votes: @restaurant.down_votes, name: @restaurant.name, state: @restaurant.state, up_votes: @restaurant.up_votes, zip: @restaurant.zip } }
+      post restaurants_url, 
+      params: { restaurant: { 
+    	address: 	@restaurant.address, 
+    	city: 		@restaurant.city, 
+    	down_votes: @restaurant.down_votes, 
+    	name: 		@restaurant.name, 
+    	state: 		@restaurant.state, 
+    	up_votes: 	@restaurant.up_votes, 
+    	zip: 		@restaurant.zip } }
     end
 
     assert_redirected_to restaurant_url(Restaurant.last)
@@ -35,7 +52,8 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update restaurant" do
-    patch restaurant_url(@restaurant), params: { restaurant: { address: @restaurant.address, city: @restaurant.city, down_votes: @restaurant.down_votes, name: @restaurant.name, state: @restaurant.state, up_votes: @restaurant.up_votes, zip: @restaurant.zip } }
+    patch restaurant_url(@restaurant), 
+    	params: { restaurant: @update }
     assert_redirected_to restaurant_url(@restaurant)
   end
 
@@ -43,7 +61,6 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Restaurant.count', -1) do
       delete restaurant_url(@restaurant)
     end
-
     assert_redirected_to restaurants_url
   end
   
@@ -62,30 +79,28 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   	# make sure search by integer values works for full
   	# and partial strings
   	assert_equal @restaurants.search(60614).count, 1
-  	assert_equal @restaurants.search(60).count, 2
+  	assert_equal @restaurants.search(60).count, 4
   end
   
-  test "should increment vote" do 
-	# Increase restaurant up_votes by one and make sure
-	# that it follows to the correct page showing the 
-	# specific restaurant that has been changed
-	before = @restaurant.up_votes
-	post up_vote_restaurant_url(@restaurant)
-	assert_response :found
-	follow_redirect!
-	assert_response :success
-	after  = @restaurant.up_votes
-	assert_equal before, after
+  # Increase restaurant up_votes by one and make sure
+  # that it follows to the correct page showing the 
+  # specific restaurant that has been changed
+  test "should add up vote" do 
+  	assert_difference('@restaurant.reload.up_votes') do
+		patch up_vote_restaurant_url(@restaurant)
+    end    
+    assert_redirected_to restaurant_url(@restaurant)
   	
-  	# Increase restaurant down_votes by one and make sure
-	# that it follows to the correct page showing the 
-	# specific restaurant that has been changed
-	before = @restaurant.down_votes
-	post down_vote_restaurant_url(@restaurant)
-	assert_response :found
-	follow_redirect!
-	assert_response :success
-	after  = @restaurant.down_votes
-	assert_equal before, after
+  end
+  
+  # Increase restaurant down _votes by one and make sure
+  # that it follows to the correct page showing the 
+  # specific restaurant that has been changed
+  test "should add down vote" do
+  	assert_difference('@restaurant.reload.down_votes') do
+		patch down_vote_restaurant_url(@restaurant)
+    end    
+    assert_redirected_to restaurant_url(@restaurant)
+  	
   end
 end

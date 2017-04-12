@@ -38,7 +38,7 @@
         	<%= link_to image_tag("thumbs-up.png", 
         		alt: "Thumbs Up", class: "icons"),
         		up_vote_restaurant_path(restaurant), 
-        		method: :post %></br>
+        		method: :patch %></br>
         		
         	<%= restaurant.up_votes %>
         </td>
@@ -47,7 +47,7 @@
         	<%= link_to image_tag("thumbs-down.png", 
         		alt: "Thumbs Down", class: "icons"),
         		down_vote_restaurant_path(restaurant),
-        		method: :post %></br>
+        		method: :patch %></br>
         		
         	<%= restaurant.down_votes %>
         </td>
