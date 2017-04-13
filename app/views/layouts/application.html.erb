@@ -21,18 +21,7 @@
 		<% end %>
   	</div>
   	
-  	<div class="main">
-  		<% flash.each do |key, value| %>
-  			<div class" alert alert-<%= key %>" >
-  				<%= value %>
-  			</div>
-  		<% end%>
-  	</div>
-  	
-  	<%= yield :top_content %>
-  	
   	<div id="main">
-	    <h1><%= yield :header %></h1>
 	    <%= yield %>
   	</div>
   </body>

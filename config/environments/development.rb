@@ -25,13 +25,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-  
-  # -------------------------------------------------
-  # Configure default URL for development environment
-  # This is required to generate links in email viewsbin
-  # -------------------------------------------------
-  config.action_mailer.default_url_options = { host: '127.0.0.1', port: 3000 }
-  
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
