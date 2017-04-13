@@ -7,7 +7,7 @@ body {
   margin: 33px;
 }
 
-p, ol, ul, td {
+p, ol, ul {
   font-family: Impact, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -20,6 +20,7 @@ pre {
   font-size: 11px;
 }
 
+// Link stylings
 a {
   color: #00ced1;
   font-weight: bold;
@@ -35,14 +36,36 @@ a {
   }
 }
 
-th {
-  padding-bottom: 5px;
+.partial_links{
+	margin-left: 10%;
+	font-size: 1.25em;
+	padding: 5px;
 }
 
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
+// Table stylings
+
+table, td {
+	border-top: 	3px dotted black;
+ 	border-bottom: 	3px dotted black;
+ 	border-collapse: collapse;
+ 	width: 80%;
+ 	margin-left: 10%;
+ 	margin-right: 10%;
+ 	
+ 	dt {
+	font-size: 1.6em;
+	padding: 10px;
+	font-weight: bold;
+	}
+	
+	dd {
+	padding: .2em;
+	font-size: 1.5em;
+	}
+	
+	th {
+	text-align: left;
+	}
 }
 
 div {
@@ -51,8 +74,11 @@ div {
   }
 }
 
+// Notice and error stylings
 #notice {
   color: green;
+  margin-left: 10%;
+  font-size: 1.25em;
 }
 
 .field_with_errors {
@@ -85,10 +111,6 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-#notice {
-	margin-left: 10%;
 }
 
 label {

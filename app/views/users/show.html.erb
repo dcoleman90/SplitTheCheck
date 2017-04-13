@@ -1,14 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<table>
+	<tbody>
+      <tr>
+        <td class="td_users_table">
+        </br>
+			User: <%= @user.name %> 
+			</br></br>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+			Email: <%= @user.email %>
+			</br></br>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+			Profile created on: <%= @user.created_at %>
+			</br></br>
+
+		    Last profile update on: <%= @user.updated_at %>
+		    </br></br>
+        </td>
+      </tr>
+	</tbody>
+</table>
+
+<div class="partial_links">
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Back', users_path %>
+</div>
