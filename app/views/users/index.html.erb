@@ -1,42 +1,8 @@
-<p id="notice"><%= notice %></p>
+<!-- 
+	 This simply redirects to the Admin index with all 
+	 access to user information and modifications. 
 
-<h1>Users</h1>
+	 Admin#index
 
-<table>
-  <thead>
-    <tr>
-      <th class="th_users_table">Name</th>
-      <th class="th_users_table">Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td class="td_users_table">
-        	<%= user.name %>
-        </td>
-        
-        <td class="td_users_table">
-        	<%= user.email %>
-        </td>
-        
-        <td>
-           	<%= link_to 'Show', user %>
-        
-            <%= link_to 'Edit', edit_user_path(user) %>
-        
-        	<%= link_to 'Destroy', user, 
-        	method: :delete, 
-        	data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<div class="partial_links">
-	<%= link_to 'New User', new_user_path %>
-</div>
+	 Find me in app/views/admin/index.html.erb
+-->
