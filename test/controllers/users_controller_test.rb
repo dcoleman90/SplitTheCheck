@@ -43,7 +43,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     name: 	  @user.name, 
     password: 'secret', 
     password_confirmation: 'secret' } }
-    assert_redirected_to restaurants_url
+    assert_redirected_to admin_url
   end
 
   test "should destroy user" do

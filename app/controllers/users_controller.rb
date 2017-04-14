@@ -29,11 +29,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-      if @user.save
+      if session[:is_admin] && @user.save
+      	format.html { redirect_to admin_url, 
+        notice: "User #{@user.name} was successfully created." }
+        format.json { render :index, status: :created }
+      elsif @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to restaurants_url, 
         notice: "User #{@user.name} was successfully created." }
-        format.json { render :show, 
-        status: :created, location: @user }
+        format.json { render :index, status: :created }
       else
         format.html { render :new }
         format.json { render json: @user.errors,
@@ -47,7 +51,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to restaurants_url, 
+        format.html { redirect_to admin_url, 
         notice: "User #{@user.name} was successfully updated." }
         format.json { render :show, status: :ok, 
         location: @user }
@@ -64,10 +68,17 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, 
-      notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+		if session[:is_admin]
+			format.html { redirect_to admin_url, 
+		  		notice: "User #{@user.name} was successfully destroyed." }
+		  		format.json { head :no_content }
+		else 
+			session[:user_id] = nil
+		  		format.html { redirect_to restaurants_url, 
+		  		notice: 'User was successfully destroyed.' }
+		  		format.json { head :no_content }
+	   	end
+	 end
   end
 
   private
