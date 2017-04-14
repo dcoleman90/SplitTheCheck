@@ -3,5 +3,9 @@
 <%= render 'form', user: @user %>
 
 <div class="partial_links">
-	<%= link_to 'Back', restaurants_path %>
+	<% if session[:is_admin] && session[:user_id] %>
+		<%= link_to 'Back', users_path %>
+	<% else %>
+		<%= link_to 'Back', restaurants_path %>
+	<% end %>
 </div>

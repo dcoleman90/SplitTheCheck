@@ -21,12 +21,11 @@
 		<% end %>
 	    
 	    <div id="user_links">
-		<% if session[:user_id] == 4%>
-
-  				<%= link_to 'Profile', 
-  				    user_path(session[:user_id]) %> |
-
-  				<%= link_to 'All users', 
+		<% if session[:is_admin] && session[:user_id] %>
+				<%= link_to 'Home', 
+				    restaurants_path %> |
+  				
+  				<%= link_to 'Users', 
   					admin_path %>	|
   					
   				<%= link_to 'Logout', logout_path,
@@ -37,9 +36,9 @@
   				<%= link_to 'Profile', 
   				    user_path(session[:user_id]) %> |
 
-
   				<%= link_to 'Logout', logout_path,
   				    method: :delete %>
+  				    
   		    <% else %>
   		    
   		    		<%= link_to 'Login', 
