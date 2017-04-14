@@ -19,10 +19,43 @@
 				placeholder: "Search Restaurants" %>
 			<%= submit_tag "Search", :name => nil %>
 		<% end %>
+	    
+	    <div id="user_links">
+		<% if session[:user_id] == 4%>
+
+  				<%= link_to 'Profile', 
+  				    user_path(session[:user_id]) %> |
+
+  				<%= link_to 'All users', 
+  					admin_path %>	|
+  					
+  				<%= link_to 'Logout', logout_path,
+  				    method: :delete %>
+  				    
+  			<% elsif session[:user_id] %>  			
+
+  				<%= link_to 'Profile', 
+  				    user_path(session[:user_id]) %> |
+
+
+  				<%= link_to 'Logout', logout_path,
+  				    method: :delete %>
+  		    <% else %>
+  		    
+  		    		<%= link_to 'Login', 
+  				    login_path %> |
+  				    
+  				    <%= link_to 'Register',
+  				    new_user_path %>
+  			
+  			<% end %>
+  			</div>
   	</div>
+  	
   	
   	<div id="main">
 	    <%= yield %>
+  	</div>
   	</div>
   </body>
 </html>

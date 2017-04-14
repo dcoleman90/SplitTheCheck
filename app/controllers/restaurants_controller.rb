@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]  
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :up_vote, :down_vote]
 
   # GET /restaurants
@@ -8,7 +9,7 @@ class RestaurantsController < ApplicationController
   	  @restaurants = 
   	  	Restaurant.search(params[:search]).order(:name)
   	else
-  	  @restaurants = Restaurant.all
+  	  @restaurants = Restaurant.order(:name)
   	end
   end
 

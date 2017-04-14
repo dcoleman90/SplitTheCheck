@@ -5,16 +5,20 @@
       <tr>
         <td class="td_users_table">
         </br>
-			User: <%= @user.name %> 
+			<strong>User: </strong>
+				<%= @user.name %> 
 			</br></br>
 
-			Email: <%= @user.email %>
+			<strong>Email: </strong>
+				<%= @user.email %>
 			</br></br>
 
-			Profile created on: <%= @user.created_at %>
+			<strong>Profile created on: </strong>
+				<%= @user.created_at %>
 			</br></br>
 
-		    Last profile update on: <%= @user.updated_at %>
+		    <strong>Last profile update on: </strong>
+		    	<%= @user.updated_at %>
 		    </br></br>
         </td>
       </tr>
@@ -22,6 +26,9 @@
 </table>
 
 <div class="partial_links">
-	<%= link_to 'Edit', edit_user_path(@user) %> |
-	<%= link_to 'Back', users_path %>
+	<!-- If time allows, create feature that allows
+	     user to change their password. -->
+	<%= link_to 'Destroy', @user, method: :delete, 
+	data: { confirm: 'Are you sure?' } %> |
+	<%= link_to 'Back', restaurants_path %>
 </div>

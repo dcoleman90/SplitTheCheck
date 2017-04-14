@@ -14,7 +14,7 @@
  *= require_self
  * header background source: https://bestfoodrestaurants.files.wordpress.com/2016/05/italian-food-banner.jpg?w=810
  */
- body {margin: 8px !important}
+ body {margin: 8px !important;}
  
  #banner {
  	background-image:  	url("food-banner.jpg");
@@ -31,14 +31,20 @@
 		color: 		 white;
 	}
  }
- 
- #main {
- 	background: white;
- }
- 
+
 #search-form {
-	float: right;
+	padding-top: 15px;
 }
+
+
+ 
+#user_links {
+	font-size: 1.5em;
+	float: right;
+	color: white;
+}
+ 
+
  
  
  
