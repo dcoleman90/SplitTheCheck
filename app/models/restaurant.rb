@@ -1,6 +1,27 @@
 class Restaurant < ApplicationRecord
 	has_and_belongs_to_many :users
 	
+
+	
+	def get_total_up_votes
+		restaurant_history = History.where(restaurant_id: self.id).last
+		if !restaurant_history.nil?
+			return  restaurant_history.up_votes_total
+		else 
+			return 0
+		end
+	end
+
+	def get_total_down_votes
+		restaurant_history = History.where(restaurant_id: self.id).last
+
+		if !restaurant_history.nil?
+			return  restaurant_history.down_votes_total
+		else 
+			return 0
+		end
+	end
+	
 	def get_city_state_zip
 		city_state_zip = self.city + ", " + self.state + " #{self.zip}"
 	end

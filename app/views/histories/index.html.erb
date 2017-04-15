@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Restaurant</th>
-      <th>User</th>
+      <th>User Email</th>
       <th>Up votes added</th>
       <th>Down votes added</th>
       <th>Up votes total</th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @histories.each do |history| %>
       <tr>
-        <td><%= history.restaurant %></td>
-        <td><%= history.user %></td>
+        <td><%= history.restaurant.name %></td>
+        <td><%= history.user.email %></td>
         <td><%= history.up_votes_added %></td>
         <td><%= history.down_votes_added %></td>
         <td><%= history.up_votes_total %></td>

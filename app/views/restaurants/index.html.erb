@@ -39,8 +39,8 @@
         		alt: "Thumbs Up", class: "icons"),
         		up_vote_restaurant_path(restaurant), 
         		method: :patch %></br>
-        		
-        	<%= restaurant.up_votes %>
+
+        	<%= restaurant.get_total_up_votes %>
         </td>
         
         <td class="votes">
@@ -48,8 +48,9 @@
         		alt: "Thumbs Down", class: "icons"),
         		down_vote_restaurant_path(restaurant),
         		method: :patch %></br>
-        		
-        	<%= restaurant.down_votes %>
+
+        	<%= restaurant.get_total_down_votes %>
+
         </td>
         
 <!----------------------------------------->       
