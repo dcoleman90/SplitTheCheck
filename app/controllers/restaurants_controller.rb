@@ -45,6 +45,21 @@ class RestaurantsController < ApplicationController
       end
     end
   end
+  
+  # GET /restaurants/1/up_vote
+  def up_vote
+	session[:restaurant_id] = @restaurant.id
+	
+	redirect_to up_vote_path
+  end
+  
+  # GET /restaurants/1/down_vote
+  def down_vote
+	session[:restaurant_id] = @restaurant.id
+	
+	redirect_to down_vote_path
+  end
+
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
@@ -53,42 +68,6 @@ class RestaurantsController < ApplicationController
       if @restaurant.update(restaurant_params)
         format.html { redirect_to @restaurant, 
         	notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, 
-        	location: @restaurant }
-      else
-        format.html { render :edit }
-        format.json { render json: @restaurant.errors,
-        	 status: :unprocessable_entity }
-      end
-    end
-  end
-  
-  # PATCH /restaurants/1/up_vote
-  def up_vote
-	respond_to do |format|
-      if @restaurant.update(up_votes: 
-      		@restaurant.up_votes + 1)
-      	 	
-        format.html { redirect_to @restaurant, 
-        	notice: 'Up vote recorded.' }
-        format.json { render :show, status: :ok, 
-        	location: @restaurant }
-      else
-        format.html { render :edit }
-        format.json { render json: @restaurant.errors,
-        	 status: :unprocessable_entity }
-      end
-    end
-  end
-  
-  # PATCH /restaurants/1/down_vote
-  def down_vote
-	respond_to do |format|
-      if @restaurant.update(down_votes:
-      	 	@restaurant.down_votes + 1)
-
-        format.html { redirect_to @restaurant, 
-        	notice: 'Down vote recorded.' }
         format.json { render :show, status: :ok, 
         	location: @restaurant }
       else
@@ -123,6 +102,6 @@ class RestaurantsController < ApplicationController
     # Never trust parameters from the scary internet, 
     # only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :up_votes, :down_votes)
+      params.require(:restaurant).permit(:name, :address, :city, :state, :zip)
     end
 end
