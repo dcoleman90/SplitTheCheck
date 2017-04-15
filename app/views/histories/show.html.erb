@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @history.restaurant %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @history.user %>
+</p>
+
+<p>
+  <strong>Up votes added:</strong>
+  <%= @history.up_votes_added %>
+</p>
+
+<p>
+  <strong>Down votes added:</strong>
+  <%= @history.down_votes_added %>
+</p>
+
+<p>
+  <strong>Up votes total:</strong>
+  <%= @history.up_votes_total %>
+</p>
+
+<p>
+  <strong>Down votes total:</strong>
+  <%= @history.down_votes_total %>
+</p>
+
+<%= link_to 'Edit', edit_history_path(@history) %> |
+<%= link_to 'Back', histories_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :histories
    # on: :member used when :id field needed for action
    resources :restaurants do
    	   patch "up_vote", on: :member
