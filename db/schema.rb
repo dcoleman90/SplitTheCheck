@@ -10,19 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415014316) do
+ActiveRecord::Schema.define(version: 20170415140150) do
 
   create_table "histories", force: :cascade do |t|
-    t.integer  "restaurant_id"
-    t.integer  "user_id"
+    t.integer  "restaurant_id",                null: false
+    t.integer  "user_id",                      null: false
     t.integer  "up_votes_added",   default: 0
     t.integer  "down_votes_added", default: 0
     t.integer  "up_votes_total",   default: 0
     t.integer  "down_votes_total", default: 0
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["restaurant_id"], name: "index_histories_on_restaurant_id"
-    t.index ["user_id"], name: "index_histories_on_user_id"
+    t.index ["restaurant_id", "user_id"], name: "index_histories_on_restaurant_id_and_user_id", unique: true
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -31,9 +30,8 @@ ActiveRecord::Schema.define(version: 20170415014316) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.integer  "down_votes", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
