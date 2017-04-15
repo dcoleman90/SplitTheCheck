@@ -17,7 +17,13 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create history" do
     assert_difference('History.count') do
-      post histories_url, params: { history: { down_votes_added: @history.down_votes_added, down_votes_total: @history.down_votes_total, restaurant_id: @history.restaurant_id, up_votes_added: @history.up_votes_added, up_votes_total: @history.up_votes_total, user_id: @history.user_id } }
+      post histories_url, params: { history: { 
+    	down_votes_added: @history.down_votes_added, 
+    	down_votes_total: @history.down_votes_total, 
+    	restaurant_id: 	  @history.restaurant_id, 
+    	up_votes_added:   @history.up_votes_added, 
+    	up_votes_total:   @history.up_votes_total, 
+    	user_id: 		  users(:three).id } }
     end
 
     assert_redirected_to history_url(History.last)
@@ -34,7 +40,13 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update history" do
-    patch history_url(@history), params: { history: { down_votes_added: @history.down_votes_added, down_votes_total: @history.down_votes_total, restaurant_id: @history.restaurant_id, up_votes_added: @history.up_votes_added, up_votes_total: @history.up_votes_total, user_id: @history.user_id } }
+    patch history_url(@history), params: { history: { 
+    	down_votes_added: @history.down_votes_added, 
+    	down_votes_total: @history.down_votes_total, 
+    	restaurant_id: 	  @history.restaurant_id, 
+    	up_votes_added:   @history.up_votes_added, 
+    	up_votes_total:   @history.up_votes_total, 
+    	user_id: 		  @history.user_id } }
     assert_redirected_to history_url(@history)
   end
 

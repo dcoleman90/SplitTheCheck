@@ -6,8 +6,6 @@ one:
   city:       MyString
   state:      MI
   zip:        60610
-  up_votes:   1
-  down_votes: 1
 
 two:
   name:       MyString
@@ -15,8 +13,6 @@ two:
   city:       MyString
   state:      MI
   zip:        60611
-  up_votes:   1
-  down_votes: 1
   
 Alinea:
   name:       Alinea
@@ -24,8 +20,6 @@ Alinea:
   city:       Chicago
   state:      IL
   zip:        60614
-  up_votes:   10
-  down_votes: 10
   
 PurplePig:
   name:       The Purple Pig
@@ -33,5 +27,3 @@ PurplePig:
   city:       Chicago
   state:      IL
   zip:        60611
-  up_votes:   20
-  down_votes: 20

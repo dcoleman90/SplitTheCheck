@@ -8,9 +8,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   	  address:    '1540 North Street',
 	  city:       'Chicago',
 	  state:      'IL',
-	  zip:        60611,
-	  up_votes:   1,
-	  down_votes: 1
+	  zip:        60611
     }
     @restaurants = Restaurant.all
   end
@@ -31,10 +29,8 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
       params: { restaurant: { 
     	address: 	@restaurant.address, 
     	city: 		@restaurant.city, 
-    	down_votes: @restaurant.down_votes, 
     	name: 		@restaurant.name, 
     	state: 		@restaurant.state, 
-    	up_votes: 	@restaurant.up_votes, 
     	zip: 		@restaurant.zip } }
     end
 
@@ -82,25 +78,21 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   	assert_equal @restaurants.search(60).count, 4
   end
   
-  # Increase restaurant up_votes by one and make sure
-  # that it follows to the correct page showing the 
-  # specific restaurant that has been changed
-  test "should add up vote" do 
-  	assert_difference('@restaurant.reload.up_votes') do
-		patch up_vote_restaurant_url(@restaurant)
-    end    
-    assert_redirected_to restaurant_url(@restaurant)
-  	
+  # Test to see that the restaurant we want to down vote
+  # has been saved in our session and has been sent to 
+  # history controller.
+  test "process and redirect up vote" do 
+  	get up_vote_restaurant_url(@restaurant)
+    assert_redirected_to up_vote_url
+  	assert_equal session[:restaurant_id], @restaurant.id
   end
   
-  # Increase restaurant down _votes by one and make sure
-  # that it follows to the correct page showing the 
-  # specific restaurant that has been changed
-  test "should add down vote" do
-  	assert_difference('@restaurant.reload.down_votes') do
-		patch down_vote_restaurant_url(@restaurant)
-    end    
-    assert_redirected_to restaurant_url(@restaurant)
-  	
+  # Test to see that the restaurant we want to up vote
+  # has been saved in our session and has been sent to 
+  # history controller.
+  test "process and redirect down vote" do
+  	get down_vote_restaurant_url(@restaurant)
+    assert_redirected_to down_vote_url
+  	assert_equal session[:restaurant_id], @restaurant.id
   end
 end
