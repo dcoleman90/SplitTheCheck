@@ -37,8 +37,7 @@
         <td class="votes">
         	<%= link_to image_tag("thumbs-up.png", 
         		alt: "Thumbs Up", class: "icons"),
-        		up_vote_restaurant_path(restaurant), 
-        		method: :patch %></br>
+        		up_vote_restaurant_path(restaurant) %></br>
 
         	<%= restaurant.get_total_up_votes %>
         </td>
@@ -46,8 +45,7 @@
         <td class="votes">
         	<%= link_to image_tag("thumbs-down.png", 
         		alt: "Thumbs Down", class: "icons"),
-        		down_vote_restaurant_path(restaurant),
-        		method: :patch %></br>
+        		down_vote_restaurant_path(restaurant) %></br>
 
         	<%= restaurant.get_total_down_votes %>
 
