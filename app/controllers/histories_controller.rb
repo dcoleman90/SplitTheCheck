@@ -59,7 +59,10 @@ class HistoriesController < ApplicationController
 	session[:restaurant_id] = nil
 	
 	if !old_history.nil?
-	  @history.up_votes_total = old_history.up_votes_total + 1
+	  @history.up_votes_total = 
+	  	old_history.up_votes_total + 1
+	  @history.down_votes_total = 
+	  	old_history.down_votes_total
 	else
 	  @history.up_votes_total = 1;
 	end
@@ -99,6 +102,8 @@ class HistoriesController < ApplicationController
 	if !old_history.nil?
 	  @history.down_votes_total = 
 	  	old_history.down_votes_total + 1
+	  @history.up_votes_total = 
+	  	old_history.up_votes_total
 	else
 	  @history.down_votes_total = 1;
 	end
