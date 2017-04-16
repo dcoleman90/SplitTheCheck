@@ -6,12 +6,15 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+	# Try accessing history as regular user
+	get histories_url
+	assert_redirected_to restaurants_url
+	
+	# Try accessing history as admin
+	logout
+	
+	login_as users(:admin), 'admin'
     get histories_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_history_url
     assert_response :success
   end
 
@@ -30,31 +33,16 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show history" do
+    # Try accessing history as regular user
+    get history_url(@history)
+    assert_redirected_to restaurants_url
+    
+    # Try accessing history as admin
+	logout
+	
+	login_as users(:admin), 'admin'
     get history_url(@history)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_history_url(@history)
-    assert_response :success
-  end
-
-  test "should update history" do
-    patch history_url(@history), params: { history: { 
-    	down_votes_added: @history.down_votes_added, 
-    	down_votes_total: @history.down_votes_total, 
-    	restaurant_id: 	  @history.restaurant_id, 
-    	up_votes_added:   @history.up_votes_added, 
-    	up_votes_total:   @history.up_votes_total, 
-    	user_id: 		  @history.user_id } }
-    assert_redirected_to history_url(@history)
-  end
-
-  test "should destroy history" do
-    assert_difference('History.count', -1) do
-      delete history_url(@history)
-    end
-
-    assert_redirected_to histories_url
-  end
 end

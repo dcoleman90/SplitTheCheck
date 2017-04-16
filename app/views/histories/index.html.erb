@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Histories</h1>
+<h1>History Log</h1>
 
 <table>
   <thead>
@@ -24,9 +24,9 @@
         <td><%= history.down_votes_added %></td>
         <td><%= history.up_votes_total %></td>
         <td><%= history.down_votes_total %></td>
+        
         <td><%= link_to 'Show', history %></td>
-        <td><%= link_to 'Edit', edit_history_path(history) %></td>
-        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New History', new_history_path %>
+

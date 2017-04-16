@@ -5,22 +5,26 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.json
   def index
-    @histories = History.all
+    if session[:is_admin]
+      @histories = History.order(created_at: :desc)
+    else
+      redirect_to restaurants_url
+    end
   end
 
   # GET /histories/1
   # GET /histories/1.json
   def show
+  	if !session[:is_admin]
+  	  redirect_to restaurants_url
+  	end
   end
 
   # GET /histories/new
-  def new
-    @history = History.new
-  end
+  # Removed to avoid manipulation of our history log. 
 
   # GET /histories/1/edit
-  def edit
-  end
+  # Removed to avoid manipulation of our history log. 
 
   # POST /histories
   # POST /histories.json
@@ -130,36 +134,11 @@ class HistoriesController < ApplicationController
 
   # PATCH/PUT /histories/1
   # PATCH/PUT /histories/1.json
-  def update
-    respond_to do |format|
-      begin
-        if @history.update(history_params)
-          format.html { redirect_to @history, 
-        	notice: 'History was successfully updated.' }
-          format.json { render :show, status: :ok, 
-        	location: @history }
-        else
-          format.html { render :edit }
-          format.json { render json: @history.errors, 
-        	status: :unprocessable_entity }
-        end
-       rescue
-      	  format.html { redirect_to @history, 
-      	    notice: 'May not add duplicate votes.'}
-      end
-    end
-  end
+  # Removed to avoid manipulation of our history log. 
 
   # DELETE /histories/1
   # DELETE /histories/1.json
-  def destroy
-    @history.destroy
-    respond_to do |format|
-      format.html { redirect_to histories_url, 
-      	notice: 'History was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # Removed to avoid manipulation of our history log. 
 
   private
     # Use callbacks to share common setup or constraints

@@ -6,8 +6,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    # Test as regular user
     get users_url
-    assert_redirected_to admin_url
+    assert_redirected_to restaurants_url
+    
+    # Test as admin
+    logout
+    login_as users(:admin), 'admin'
+    get users_url
+    assert_response :success
   end
 
   test "should get new" do
@@ -28,11 +35,25 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show user" do
+    # Test as regular user
+    get user_url(@user)
+    assert_redirected_to restaurants_url
+    
+    # Test as admin
+    logout
+    login_as users(:admin), 'admin'
     get user_url(@user)
     assert_response :success
   end
 
   test "should get edit" do
+    # Test as regular user
+    get edit_user_url(@user)
+    assert_redirected_to restaurants_url
+    
+    # Test as admin
+    logout
+    login_as users(:admin), 'admin'
     get edit_user_url(@user)
     assert_response :success
   end

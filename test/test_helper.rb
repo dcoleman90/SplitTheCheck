@@ -13,9 +13,9 @@ class ActiveSupport::TestCase
   # we have to log in in order to perform some functions.
   # 'login_as' will only be called if 'session' is defined  
   ##########################################################
-  def login_as(user)
+  def login_as(user, password)
     post login_url, params: { 
-    	email: user.email, password: 'secret'}
+    	email: user.email, password: password }
   end
   
   def logout
@@ -23,6 +23,6 @@ class ActiveSupport::TestCase
   end
   
   def setup
-  	login_as users(:one)
+  	login_as users(:one), 'secret'
   end
 end

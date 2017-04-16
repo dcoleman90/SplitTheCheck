@@ -6,12 +6,19 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    redirect_to admin_url
+    if !session[:is_admin]
+      redirect_to restaurants_url
+    else
+      @users = User.order(:name)
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if !session[:is_admin]
+      redirect_to restaurants_url
+    end
   end
 
   # GET /users/new
@@ -21,6 +28,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if !session[:is_admin]
+      redirect_to restaurants_url
+    end
   end
 
   # POST /users

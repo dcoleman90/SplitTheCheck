@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
   # GET sessions/create
   def create
   	user = User.find_by(email: params[:email])
-	if user.try(:authenticate, params[:password]) && user.id == 4
+	if user.try(:authenticate, params[:password]) &&
+	    user.email == 'admin@gmail.com' 
+  		
   		session[:is_admin] = true
   		session[:user_id] = user.id	
   		redirect_to restaurants_url

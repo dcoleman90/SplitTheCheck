@@ -1,34 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @history.restaurant %>
-</p>
+<fieldset>
+<legend>History Entry</legend>
+	<p>
+	  <strong>Restaurant:</strong>
+	  <%= @history.restaurant.name %> |
+	  <%= @history.restaurant.address %> |
+	  <%= @history.restaurant.get_city_state_zip %>
+	</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @history.user %>
-</p>
+	<p>
+	  <strong>Voter:</strong>
+	  <%= @history.user.name %> |
+	  <%= @history.user.email %>
+	</p>
 
-<p>
-  <strong>Up votes added:</strong>
-  <%= @history.up_votes_added %>
-</p>
+	<p>
+	  <strong>Up votes added:</strong>
+	  <%= @history.up_votes_added %>
+	</p>
 
-<p>
-  <strong>Down votes added:</strong>
-  <%= @history.down_votes_added %>
-</p>
+	<p>
+	  <strong>Down votes added:</strong>
+	  <%= @history.down_votes_added %>
+	</p>
 
-<p>
-  <strong>Up votes total:</strong>
-  <%= @history.up_votes_total %>
-</p>
+	<p>
+	  <strong>Up votes total:</strong>
+	  <%= @history.up_votes_total %>
+	</p>
 
-<p>
-  <strong>Down votes total:</strong>
-  <%= @history.down_votes_total %>
-</p>
+	<p>
+	  <strong>Down votes total:</strong>
+	  <%= @history.down_votes_total %>
+	</p>
+	
+	<p>
+	  <strong>Entry added at:</strong>
+	  <%= @history.created_at %>
+	</p>
+</fieldset>
 
-<%= link_to 'Edit', edit_history_path(@history) %> |
-<%= link_to 'Back', histories_path %>
+<div class="partial_links">
+	<%= link_to 'Back', histories_path %>
+</div>
