@@ -75,21 +75,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-		if session[:is_admin]
-			format.html { redirect_to admin_url, 
-		  		notice: "User #{@user.name} was successfully destroyed." }
-		  		format.json { head :no_content }
-		else 
-			session[:user_id] = nil
-		  		format.html { redirect_to restaurants_url, 
-		  		notice: 'User was successfully destroyed.' }
-		  		format.json { head :no_content }
-	   	end
-	 end
-  end
+  # Removed functionality in order keep keep referential
+  # integrity within our DB histories table
 
   private
     # Use callbacks to share common setup or constraints between actions.
