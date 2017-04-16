@@ -67,11 +67,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_url
   end
 
-  test "should destroy user" do
-    assert_difference('User.count', -1) do
-      delete user_url(@user)
-    end
-
-    assert_redirected_to restaurants_url
-  end
 end

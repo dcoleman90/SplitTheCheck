@@ -53,13 +53,6 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to restaurant_url(@restaurant)
   end
 
-  test "should destroy restaurant" do
-    assert_difference('Restaurant.count', -1) do
-      delete restaurant_url(@restaurant)
-    end
-    assert_redirected_to restaurants_url
-  end
-  
     
   test "should get searched result" do
   	# total fixtures should equal to four at start
