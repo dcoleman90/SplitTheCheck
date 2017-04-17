@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     if !session[:is_admin]
       redirect_to restaurants_url
-    else 
+    end
   end
 
   # GET /users/new
