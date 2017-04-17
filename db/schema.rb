@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170417225934) do
 
   create_table "comments", force: :cascade do |t|
@@ -22,9 +21,6 @@ ActiveRecord::Schema.define(version: 20170417225934) do
     t.index ["restaurant_id"], name: "index_comments_on_restaurant_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
-=======
-ActiveRecord::Schema.define(version: 20170415140150) do
->>>>>>> parent of 09297c9... Comments table made along with scaffolding.
 
   create_table "histories", force: :cascade do |t|
     t.integer  "restaurant_id",                null: false

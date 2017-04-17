@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
+
+<div class="partial_links">
+	<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+	<%= link_to 'Back', restaurants_path %> |	
+<!--------------------------------------------------------->
+	<%= link_to 'Add Review' %>
+<!--------------------------------------------------------->
+</div>
+
 <table>
 	<tbody>
       <tr>
@@ -27,13 +36,28 @@
         	<%= image_tag("thumbs-down.png", 
         		alt: "Thumbs Down", size: "30x30",
         		class: "icons") %></br>
-        	<%= @restaurant.get_total_down_votes %>
-        	<!-- preface image_tag with link_to when needed -->
+        	<%= @restaurant.get_total_down_votes %> 
+			
         </td>   
+	  </tr>
+	  
+<!--------------------------------------------------------->
+	  <tr>
+	  	<td>
+	  	  <dl>
+	  	    <dt>Posted by: User</dt>
+	  	      <dd>
+	  	      Here is a restaurant review that i wrote
+	  	      and it is going to be really good cuz I voted
+	  	      for this restaurant.
+	  	      </dd>
+	  	  </dl>
+	  	</td>
+	  </tr>
+<!--------------------------------------------------------->
+	
 	</tbody>
+	
 </table>
 
-<div class="partial_links">
-	<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-	<%= link_to 'Back', restaurants_path %>
-</div>
+
