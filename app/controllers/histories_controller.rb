@@ -86,7 +86,7 @@ class HistoriesController < ApplicationController
         end
       rescue
       	  format.html { redirect_to restaurants_url, 
-      	    notice: 'May not add duplicate votes.'}
+      	    notice: 'May not vote twice for restaurant.'}
       end
     end
   end
@@ -127,7 +127,7 @@ class HistoriesController < ApplicationController
         end
       rescue
       	  format.html { redirect_to restaurants_url, 
-      	    notice: 'May not add duplicate votes.'}
+      	    notice: 'May vote twice for restaurant.'}
       end
     end
   end
@@ -150,6 +150,12 @@ class HistoriesController < ApplicationController
     # Never trust parameters from the scary internet, 
     # only allow the white list through.
     def history_params
-      params.require(:history).permit(:restaurant_id, :user_id, :up_votes_added, :down_votes_added, :up_votes_total, :down_votes_total)
+      params.require(:history).permit(
+      	:restaurant_id, 
+      	:user_id, 
+      	:up_votes_added, 
+      	:down_votes_added, 
+      	:up_votes_total, 
+      	:down_votes_total)
     end
 end
