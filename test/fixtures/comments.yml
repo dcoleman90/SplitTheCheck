@@ -2,10 +2,10 @@
 
 one:
   restaurant: one
-  users: one
-  comment: MyString
+  user:       one
+  comment:    MyString
 
 two:
   restaurant: two
-  users: two
-  comment: MyString
+  user:       two
+  comment:    MyString
