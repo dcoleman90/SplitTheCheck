@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   def show
     if !session[:is_admin]
       redirect_to restaurants_url
+<<<<<<< HEAD
     end 
+=======
+    end
+>>>>>>> parent of 09297c9... Comments table made along with scaffolding.
   end
 
   # GET /users/new
