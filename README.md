@@ -7,7 +7,7 @@ email:    dave@gmail.com
 password: secret
 
 Admin login: 
-email:    admin@gmail.com
+email:    admin
 password: admin
 
 A note about the database: 
