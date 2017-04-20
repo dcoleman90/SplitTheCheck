@@ -2,15 +2,7 @@
 
 one:
   restaurant: one
-  user:       one
-  up_votes_added:   0
-  down_votes_added: 0
-  up_votes_total:   0
-  down_votes_total: 0
-
-two:
-  restaurant: two
-  user:       two
+  user:       admin
   up_votes_added:   0
   down_votes_added: 0
   up_votes_total:   0

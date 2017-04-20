@@ -3,6 +3,7 @@ require 'test_helper'
 class HistoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @history = histories(:one)
+    @restaurant = restaurants(:one)
   end
 
   test "should get index" do
@@ -43,6 +44,46 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
 	login_as users(:admin), 'admin'
     get history_url(@history)
     assert_response :success
+  end
+  
+  test "should add up vote" do
+  	# Check last entry in history
+	old_history       = History.last
+	old_up_vote_added = old_history.up_votes_added
+	old_votes_total   = old_history.up_votes_total
+
+	# User clicks up vote icon, final redirect back to 
+	# restaurant page.
+	get up_vote_restaurant_url(@restaurant)
+	follow_redirect!
+	assert_redirected_to restaurants_url
+	
+	# Check new recently added history due to up_vote
+	new_history       = History.last
+	new_up_vote_added = new_history.up_votes_added
+	new_votes_total   = new_history.up_votes_total
+	assert_equal 1, new_up_vote_added
+	assert_equal new_votes_total, old_votes_total + 1
+  end
+  
+   test "should add down vote" do
+  	# Check last entry in history
+	old_history         = History.last
+	old_down_vote_added = old_history.down_votes_added
+	old_votes_total     = old_history.down_votes_total
+
+	# User clicks up vote icon, final redirect back to 
+	# restaurant page.
+	get down_vote_restaurant_url(@restaurant)
+	follow_redirect!
+	assert_redirected_to restaurants_url
+	
+	# Check new recently added history due to up_vote
+	new_history         = History.last
+	new_down_vote_added = new_history.down_votes_added
+	new_votes_total     = new_history.down_votes_total
+	assert_equal 1, new_down_vote_added
+	assert_equal new_votes_total, old_votes_total + 1
   end
 
 end

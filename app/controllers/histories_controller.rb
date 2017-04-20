@@ -52,36 +52,36 @@ class HistoriesController < ApplicationController
   
   # GET /up_vote
   def up_vote
-    @history = History.new
-    @history.restaurant_id  = session[:restaurant_id]
-    @history.user_id        = session[:user_id]
-    @history.up_votes_added = 1
+    history = History.new
+    history.restaurant_id  = session[:restaurant_id]
+    history.user_id        = session[:user_id]
+    history.up_votes_added = 1
 	
 	old_history = History.where(
-		restaurant_id: @history.restaurant_id).last
+		restaurant_id: history.restaurant_id).last
 	
 	session[:restaurant_id] = nil
 	
 	if !old_history.nil?
-	  @history.up_votes_total = 
+	  history.up_votes_total = 
 	  	old_history.up_votes_total + 1
-	  @history.down_votes_total = 
+	  history.down_votes_total = 
 	  	old_history.down_votes_total
 	else
-	  @history.up_votes_total = 1;
+	  history.up_votes_total = 1;
 	end
 	
     respond_to do |format|
       begin
-        if @history.save
+        if history.save
           format.html { redirect_to restaurants_url, 
         	notice: 'Your vote has been recorded.' }
           format.json { render :show, status: :created, 
-        	location: @history }
+        	location: history }
         else
           format.html { redirect_to restaurants_url,
             notice: 'Unable to save vote. Try again.' }
-          format.json { render json: @history.errors, 
+          format.json { render json: history.errors, 
         	status: :unprocessable_entity }
         end
       rescue
@@ -93,40 +93,40 @@ class HistoriesController < ApplicationController
   
   # GET /down_vote
   def down_vote
-    @history = History.new
-    @history.restaurant_id    = session[:restaurant_id]
-    @history.user_id 	      = session[:user_id]
-    @history.down_votes_added = 1
+    history = History.new
+    history.restaurant_id    = session[:restaurant_id]
+    history.user_id 	     = session[:user_id]
+    history.down_votes_added = 1
 	
 	old_history = History.where(
-		restaurant_id: @history.restaurant_id).last
+		restaurant_id: history.restaurant_id).last
 	
 	session[:restaurant_id] = nil
 	
 	if !old_history.nil?
-	  @history.down_votes_total = 
+	  history.down_votes_total = 
 	  	old_history.down_votes_total + 1
-	  @history.up_votes_total = 
+	  history.up_votes_total = 
 	  	old_history.up_votes_total
 	else
-	  @history.down_votes_total = 1;
+	  history.down_votes_total = 1;
 	end
 	
     respond_to do |format|
       begin
-        if @history.save
+        if history.save
           format.html { redirect_to restaurants_url, 
         	notice: 'Your vote has been recorded.' }
           format.json { render :show, status: :created, 
-        	location: @history }
+        	location: history }
         else
-          format.html { redirect_to restaurants_url,
+          format.html { redirect_to users_url,
             notice: 'Unable to save vote. Try again.' }
-          format.json { render json: @history.errors, 
+          format.json { render json: history.errors, 
         	status: :unprocessable_entity }
         end
       rescue
-      	  format.html { redirect_to restaurants_url, 
+      	  format.html { redirect_to histories_url, 
       	    notice: 'May not add duplicate votes.'}
       end
     end
