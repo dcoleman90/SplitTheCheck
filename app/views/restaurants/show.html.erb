@@ -30,7 +30,21 @@
         	<%= @restaurant.get_total_down_votes %>
         	<!-- preface image_tag with link_to when needed -->
         </td>   
-	</tbody>
+      </tr>
+
+
+	<% @comments.each do |comment| %>
+	<tr>
+		<td><dl>
+			<dt><%= comment.user.name %> said...</dt>
+			<dd><%= comment.comment %></dd>
+		</dl></td>
+		<td style="text-align: right">Date posted:</td>
+		<td><%= comment.format_created_at %></td>
+	</tr>
+	<% end %>
+	
+  </tbody>
 </table>
 
 <div class="partial_links">

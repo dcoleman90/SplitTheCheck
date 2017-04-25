@@ -16,6 +16,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @comments = Comment.where(restaurant_id:
+    	@restaurant.id).order(created_at: :desc)
   end
 
   # GET /restaurants/new

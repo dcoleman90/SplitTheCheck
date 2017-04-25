@@ -74,7 +74,7 @@ class HistoriesController < ApplicationController
     respond_to do |format|
       begin
         if history.save
-          format.html { redirect_to restaurants_url, 
+          format.html { redirect_to restaurant_url(history.restaurant_id), 
         	notice: 'Your vote has been recorded.' }
           format.json { render :show, status: :created, 
         	location: history }
@@ -86,7 +86,8 @@ class HistoriesController < ApplicationController
         end
       rescue
       	  format.html { redirect_to restaurants_url, 
-      	    notice: 'May not add duplicate votes.'}
+      	    notice: "May not vote twice for 
+      	    #{history.restaurant.name}."}
       end
     end
   end
@@ -115,7 +116,7 @@ class HistoriesController < ApplicationController
     respond_to do |format|
       begin
         if history.save
-          format.html { redirect_to restaurants_url, 
+          format.html { redirect_to restaurant_url(history.restaurant_id), 
         	notice: 'Your vote has been recorded.' }
           format.json { render :show, status: :created, 
         	location: history }
@@ -127,7 +128,8 @@ class HistoriesController < ApplicationController
         end
       rescue
       	  format.html { redirect_to histories_url, 
-      	    notice: 'May not add duplicate votes.'}
+      	    notice: "May not vote twice for 
+      	    #{history.restaurant.name}."}
       end
     end
   end
