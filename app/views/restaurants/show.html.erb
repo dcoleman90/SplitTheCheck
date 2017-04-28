@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+<div class="partial_links">
+	<%= link_to 'Edit Restaurant', 
+		edit_restaurant_path(@restaurant) %> |
+	<%= link_to 'Add Comment', 
+		new_comment_path(:comment => {:restaurant_id  => @restaurant.id} ) %> |
+	<%= link_to 'Back', restaurants_path %>
+</div>
+
 <table>
 	<tbody>
       <tr>
@@ -47,7 +55,4 @@
   </tbody>
 </table>
 
-<div class="partial_links">
-	<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-	<%= link_to 'Back', restaurants_path %>
-</div>
+

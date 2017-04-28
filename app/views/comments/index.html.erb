@@ -18,8 +18,10 @@
         <td><%= comment.restaurant.name %></td>
         <td><%= comment.user.name %></td>
         <td><%= comment.comment %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td>
+        	<%= link_to 'Show', comment %>
+        	<%= link_to 'Edit', edit_comment_path(comment) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

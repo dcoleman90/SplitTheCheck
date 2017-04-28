@@ -56,7 +56,7 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
 	# restaurant page.
 	get up_vote_restaurant_url(@restaurant)
 	follow_redirect!
-	assert_redirected_to restaurants_url
+	assert_redirected_to restaurant_url(@restaurant)
 	
 	# Check new recently added history due to up_vote
 	new_history       = History.last
@@ -76,7 +76,7 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
 	# restaurant page.
 	get down_vote_restaurant_url(@restaurant)
 	follow_redirect!
-	assert_redirected_to restaurants_url
+	assert_redirected_to restaurant_url(@restaurant)
 	
 	# Check new recently added history due to up_vote
 	new_history         = History.last

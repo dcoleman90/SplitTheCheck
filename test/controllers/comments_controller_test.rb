@@ -3,15 +3,25 @@ require 'test_helper'
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @comment = comments(:one)
+    @restaurant = restaurants(:one)
   end
 
   test "should get index" do
+    # Try accessing comments table as regular user
     get comments_url
-    assert_response :success
+    assert_redirected_to restaurants_url
+
+	# Try accessing comments table as admin    
+    logout 
+	login_as users(:admin), 'admin'
+	get comments_url
+	assert_response :success
   end
 
   test "should get new" do
-    get new_comment_url
+    get new_comment_path(:comment => 
+    	{:restaurant_id  => @restaurant.id} )
+    	
     assert_response :success
   end
 
@@ -23,7 +33,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       	user_id:       @comment.user_id } }
     end
 
-    assert_redirected_to comment_url(Comment.last)
+    assert_redirected_to restaurant_url(@comment.restaurant_id)
   end
 
   test "should show comment" do

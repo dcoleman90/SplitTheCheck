@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    if session[:is_admin]
+      @comments = Comment.all
+    else
+      redirect_to restaurants_url
+    end
   end
 
   # GET /comments/1
@@ -14,7 +18,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
+    @comment.user_id = session[:user_id]
   end
 
   # GET /comments/1/edit
@@ -28,7 +33,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, 
+        format.html { redirect_to restaurant_url(@comment.restaurant_id), 
         	notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, 
         	location: @comment }
@@ -69,12 +74,14 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints 
+    # between actions.
     def set_comment
       @comment = Comment.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only 
+    # allow the white list through.
     def comment_params
       params.require(:comment).permit(:restaurant_id, :user_id, :comment)
     end
