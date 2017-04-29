@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     if session[:is_admin]
-      @comments = Comment.all
+      @comments = Comment.order(created_at: :desc)
     else
       redirect_to restaurants_url
     end

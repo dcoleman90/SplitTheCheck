@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @comment.restaurant.name %>
-</p>
+<fieldset>
+<legend>Comment</legend>
+	<p>
+	  <strong>Restaurant:</strong>
+	  <%= @comment.restaurant.name %>
+	</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user.name %>
-</p>
+	<p>
+	  <strong>User:</strong>
+	  <%= @comment.user.name %>
+	</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @comment.comment %>
-</p>
+	<p>
+	  <strong>Comment:</strong>
+	  <%= @comment.comment %>
+	</p>
+</fieldset>
+
 <div class="partial_links">
 	<%= link_to 'Edit', edit_comment_path(@comment) %> |
 	<%= link_to 'Back', comments_path %>

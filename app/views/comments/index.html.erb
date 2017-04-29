@@ -19,7 +19,7 @@
         <td><%= comment.user.name %></td>
         <td><%= comment.comment %></td>
         <td>
-        	<%= link_to 'Show', comment %>
+        	<%= link_to 'Show', comment %> <br>
         	<%= link_to 'Edit', edit_comment_path(comment) %>
         </td>
       </tr>
@@ -27,7 +27,4 @@
   </tbody>
 </table>
 
-<br>
-<div class="partial_links">
-	<%= link_to 'New Comment', new_comment_path %>
-</div>
+<br><br>

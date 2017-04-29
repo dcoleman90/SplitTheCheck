@@ -26,20 +26,65 @@
 	</tbody>
 </table>
 <br><br>
+
+<!-- Show a list of their favorite restaurants -->
+<h1>Favorites Restaurants</h1>
+<table>
+	<tbody>
+       <% if @history.empty? || @history.nil? || 
+      			!User.has_favorites?(@history) %>
+       <tr>
+          <td>
+            <h3>No favorites have been recorded.</h3>
+          </td>
+        </tr>
+        
+      <% else %>
+      
+         <tr>
+          <td><h3>
+            <% @history.each_with_index do |h, index| %>
+               <% if h.up_votes_added == 1 %> 
+                 <% if index == @history.size - 1 %>
+                   <%= h.restaurant.name %>
+                 <% else %>
+                   <%= h.restaurant.name + "," %>
+                 <% end %>
+			   <% end %>
+            <% end %>
+          </h3></td>
+        </tr>
+        
+      <% end %>
+	</tbody>   
+</table> 
+<br><br>
       
 <!-- Show any comments user has made -->
 <h1>Comments</h1>
 
 <table>
 	<tbody>
-      <% @comments.each do |comment| %>
-	    <tr>
-	      <td><dl>
-			<dd><%= comment.comment %></dd>
-		  </dl></td>
-		  <td style="text-align: right">Date posted:</td>
-		  <td><%= comment.format_created_at %></td>
-	    </tr>
+      <% if @history.empty? || @history.nil? %>
+        
+        <tr>
+          <td>
+            <h3>No comments have been recorded.</h3>
+          </td>
+        </tr>
+        
+      <% else %>
+      
+        <% @comments.each do |comment| %>
+	      <tr>
+	        <td><dl>
+			  <dd><%= comment.comment %></dd>
+		    </dl></td>
+		    <td style="text-align: right">Date posted:</td>
+		    <td><%= comment.format_created_at %></td>
+	      </tr>
+	    <% end %>
+	    
 	  <% end %>
 	</tbody>   
 </table>   
@@ -50,46 +95,41 @@
 <h1>Voting History</h1>
 <table>
 	<tbody>
-	  <% @history.each do |vote| %>
+	  <% if @history.empty? || @history.nil? %>
+        
         <tr>
-          <td><h3><%= vote.restaurant.name %></h3></td>
-          <% if vote.up_votes_added == 1%>  
-            <td></td>
-            <td>
-              <%= image_tag("thumbs-up.png", 
-        	  alt: "Thumbs Up", size: "30x30",
-              class: "icons") %>
-            </td>
-          <% else %>
-            <td></td>
-            <td>
-              <%= image_tag("thumbs-down.png", 
-              alt: "Thumbs Down", size: "30x30",
-        	  class: "icons") %>
-            </td>
-          <% end %> 
+          <td>
+            <h3>No votes have been recorded.</h3>
+          </td>
         </tr>
+        
+      <% else %>
+	    
+	    <% @history.each do |vote| %>
+          <tr>
+            <td><h3><%= vote.restaurant.name %></h3></td>
+            <% if vote.up_votes_added == 1 %>  
+              <td></td>
+              <td>
+                <%= image_tag("thumbs-up.png", 
+        	    alt: "Thumbs Up", size: "30x30",
+                class: "icons") %>
+              </td>
+            <% else %>
+              <td></td>
+              <td>
+                <%= image_tag("thumbs-down.png", 
+                alt: "Thumbs Down", size: "30x30",
+        	    class: "icons") %>
+              </td>
+            <% end %> 
+          </tr>
+        <% end %>
+        
       <% end %>
 	</tbody>   
 </table> 
 <br><br>
-
-<!-- Show a list of their favorite restaurants -->
-<h1>Favorites Restaurants</h1>
-<table>
-	<tbody>
-      <tr>
-        <td>
-        </td>
-      </tr>
-	</tbody>   
-</table> 
-<br><br>
-      
-      
-      
-      
-
 
 <div class="partial_links">
 	<% if session[:is_admin] && session[:user_id] %>
