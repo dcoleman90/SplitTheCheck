@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if !session[:is_admin]
-      redirect_to restaurants_url
+    if @user.id != session[:user_id] && !session[:is_admin] 
+      redirect_to user_url(session[:user_id])
     end
   end
 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_url, 
+        format.html { redirect_to users_url, 
         notice: "User #{@user.name} was successfully updated." }
         format.json { render :show, status: :ok, 
         location: @user }

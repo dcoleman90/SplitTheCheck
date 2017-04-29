@@ -30,8 +30,10 @@
   				    method: :delete %>
   				    
   			  <% elsif session[:user_id] %>  			
-				
+
 				<%= link_to 'Home', restaurants_path %>   |
+				<%= link_to 'Profile', 
+					user_path(session[:user_id]) %>       |
   				<%= link_to 'Logout', logout_path,
   				    method: :delete %>
   				    

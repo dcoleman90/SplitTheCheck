@@ -1,5 +1,5 @@
-Rails.application.routes.draw do
-  resources :comments
+Rails.application.routes.draw do   
+   resources :comments
    resources :users
    resources :histories
    
@@ -13,13 +13,10 @@ Rails.application.routes.draw do
    	   get "down_vote"
    end
    
-   get "admin" => 'admin#index'
-
    controller :sessions do
   	   get  "login"  => :new
   	   post "login"  => :create
   	   delete "logout" => :destroy
    end
-
    # on: :member used when :id field needed for action
 end
