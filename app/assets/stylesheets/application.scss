@@ -16,7 +16,7 @@
  */
  body {margin: 8px !important;}
  
- #banner {
+#banner {
  	background-image:  	url("food-banner.jpg");
 	background-repeat: 	no-repeat;
 	background-size: 	100% ;
@@ -46,6 +46,32 @@
 	bottom: 	0;
 	right: 		0;
 	padding: 	5px;
+}
+
+// Table stylings
+
+table, td {
+	border-top: 	3px dotted black;
+ 	border-bottom: 	3px dotted black;
+ 	border-collapse: collapse;
+ 	width: 80%;
+ 	margin-left: 10%;
+ 	margin-right: 10%;
+ 	
+ 	dt {
+	font-size: 1.6em;
+	padding: 10px;
+	font-weight: bold;
+	}
+	
+	dd {
+	padding: .2em;
+	font-size: 1.5em;
+	}
+	
+	th {
+	text-align: left;
+	}
 }
  
 

@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+	@comments = Comment.where(user_id: 
+		session[:user_id]).order(created_at: :desc)
+    @history = History.where(user_id: session[:user_id])
+    
     if @user.id != session[:user_id] && !session[:is_admin] 
       redirect_to user_url(session[:user_id])
     end

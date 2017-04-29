@@ -42,32 +42,6 @@ a {
 	padding: 5px;
 }
 
-// Table stylings
-
-table, td {
-	border-top: 	3px dotted black;
- 	border-bottom: 	3px dotted black;
- 	border-collapse: collapse;
- 	width: 80%;
- 	margin-left: 10%;
- 	margin-right: 10%;
- 	
- 	dt {
-	font-size: 1.6em;
-	padding: 10px;
-	font-weight: bold;
-	}
-	
-	dd {
-	padding: .2em;
-	font-size: 1.5em;
-	}
-	
-	th {
-	text-align: left;
-	}
-}
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
